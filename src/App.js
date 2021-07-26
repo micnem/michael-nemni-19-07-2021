@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import { useRootStore } from "./rootStoreContext";
+import { observer } from "mobx-react";
+import { createWeatherStore, WeatherStoreProvider } from "./store/index";
+import { WeatherCard } from "./store/components/weatherCard";
 
-function App() {
+export const App = observer(() => {
+  const rootStore = useRootStore();
+  const [store] = useState(() => createWeatherStore(rootStore));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WeatherStoreProvider value={store}>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <WeatherCard />
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    </WeatherStoreProvider>
   );
-}
-
-export default App;
+});

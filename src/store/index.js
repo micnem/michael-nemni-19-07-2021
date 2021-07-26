@@ -14,10 +14,12 @@ class WeatherStore {
   }
 
   initProperties() {
-    this.temperature = 20;
+    this.temperature = "";
   }
 
-  async getWeatherData() {}
+  async getWeatherData() {
+      this.temperature = 420
+  }
 }
 
 decorate(WeatherStore, {
