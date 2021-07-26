@@ -37,17 +37,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const WeatherCard = () => {
+export const WeatherCard = observer(() => {
   const classes = useStyles();
   const store = useWeatherStore();
 
-  
   useEffect(() => {
-    store.getWeatherData()
+    store.getWeatherData();
   }, [])
 
   return (
     <Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            {store.weatherData?.WeatherIcon}
+          </Avatar>
+        }
+        title="Tel Aviv"
+        subheader={new Date().toString()}
+      />
+      <CardMedia
+        className={classes.media}
+        image="/static/images/cards/paella.jpg"
+        title="Paella dish"
+      />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           Current Temperature: {store.temperature}C
@@ -60,4 +73,4 @@ export const WeatherCard = () => {
       </CardActions>
     </Card>
   );
-}
+})

@@ -5,6 +5,7 @@ import { useRootStore } from "./rootStoreContext";
 import { observer } from "mobx-react";
 import { createWeatherStore, WeatherStoreProvider } from "./store/index";
 import { WeatherCard } from "./store/components/weatherCard";
+import { SearchBar } from "./store/components/searchBar";
 
 export const App = observer(() => {
   const rootStore = useRootStore();
@@ -14,16 +15,8 @@ export const App = observer(() => {
     <WeatherStoreProvider value={store}>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <SearchBar />
           <WeatherCard />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
       </div>
     </WeatherStoreProvider>
