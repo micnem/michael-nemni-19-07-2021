@@ -15,7 +15,7 @@ class WeatherStore {
 
   initProperties() {
     this.temperature = "";
-    this.currentCity = {Key: "215854"};
+    this.currentCity = {Key: "215854", LocalizedName: 'Search for a city!'};
   }
 
   async getWeatherData() {
@@ -48,7 +48,7 @@ export function createWeatherStore(rootStore) {
 const axios = require("axios");
 
 const getWeatherDataFromApi = async (cityKey) => {
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/${cityKey}`;
+    const url = `https://dataservice.accuweather.com/currentconditions/v1/${cityKey}`;
   const res = await axios.get(url, {
     params: { apikey: process.env.REACT_APP_API_KEY, language: "en-us" },
   });
@@ -58,7 +58,7 @@ const getWeatherDataFromApi = async (cityKey) => {
 
 const submitSearch = async (searchQuery) => {
   const res = await axios.get(
-    "http://dataservice.accuweather.com/locations/v1/cities/autocomplete",
+    "https://dataservice.accuweather.com/locations/v1/cities/autocomplete",
     {
       params: {
         apikey: process.env.REACT_APP_API_KEY,

@@ -48,7 +48,7 @@ export const WeatherCard = observer(() => {
             {store.weatherData?.WeatherIcon}
           </Avatar>
         }
-        title="Tel Aviv"
+        title={store.currentCity?.LocalizedName}
         subheader={new Date().toString()}
       />
       <CardMedia

@@ -20,7 +20,6 @@ const store = useWeatherStore();
       label="Outlined" variant="outlined" onChange={setQuery}
       />
       <Button onClick={search}> search </Button>
-      <Typography>{store.currentCity?.LocalizedName}</Typography>
     </div>
   );
 })
