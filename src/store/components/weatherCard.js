@@ -10,7 +10,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { observer } from "mobx-react";
 import { useWeatherStore } from "../index";
 
@@ -43,7 +42,7 @@ export const WeatherCard = observer(() => {
 
   useEffect(() => {
     store.getWeatherData();
-  }, [])
+  })
 
   return (
     <Card className={classes.root}>
