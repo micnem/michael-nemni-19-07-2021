@@ -51,11 +51,9 @@ export const WeatherCard = observer(() => {
         title={store.currentCity?.LocalizedName}
         subheader={new Date().toString()}
       />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+     <Typography variant="h2" color="textSecondary" component="h2">
+          {store.weatherText}
+        </Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           Current Temperature: {store.temperature}C
