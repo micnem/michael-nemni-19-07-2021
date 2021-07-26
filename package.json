@@ -48,6 +48,7 @@
     "mobx": "5.9.0",
     "mobx-react": "6.1.4",
     "mobx-react-lite": "1.5.0",
+    "node-env-file": "^0.1.8",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.2.1",
