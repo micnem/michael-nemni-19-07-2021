@@ -50,7 +50,7 @@ const axios = require("axios");
 const getWeatherDataFromApi = async (cityKey) => {
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${cityKey}`;
   const res = await axios.get(url, {
-    params: { apikey: "651vaFGy1jIolVjGB6GwT6iOXhdwcbpM", language: "en-us" },
+    params: { apikey: process.env.apikey, language: "en-us" },
   });
   console.log("get", res);
   return res.data[0];
@@ -61,7 +61,7 @@ const submitSearch = async (searchQuery) => {
     "http://dataservice.accuweather.com/locations/v1/cities/autocomplete",
     {
       params: {
-        apikey: "651vaFGy1jIolVjGB6GwT6iOXhdwcbpM",
+        apikey: process.env.apikey,
         q: searchQuery,
         language: "en-us",
       },
