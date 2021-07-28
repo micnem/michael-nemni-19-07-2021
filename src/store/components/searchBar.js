@@ -15,9 +15,9 @@ export const SearchBar = observer(() => {
     }
   };
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 300, padding: 20 }}>
       <TextField label="Search" variant="outlined" onChange={setQuery} />
-      <Button onClick={search} color="primary" variant="contained">
+      <Button onClick={search} color="primary" variant="contained" style={{ width: 300, padding: 20 }}>
         {" "}
         search{" "}
       </Button>
